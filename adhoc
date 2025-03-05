@@ -1,0 +1,3 @@
+ansible web[1:5] -m command -a "lsblk; yum check-update; uname -r"
+ansible application -m shell -a "/root/ansible/cron_user.sh"
+ansible nodes -m uri -a "url=https://ansible.mohit.fun/playbook/hwreport.txt"
