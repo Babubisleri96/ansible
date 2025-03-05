@@ -1,0 +1,10 @@
+Below has been deprecated to support previous vare defination
+vars:
+  name:
+    - X
+    - Y
+    - Z
+  last_name:
+    - jojo
+    - momo
+    - dodo
