@@ -1,0 +1,15 @@
+---
+- name: Printing the message
+  hosts: nodes
+  vars:
+    message: Hello my friend
+    names:
+      - Mohit
+      - Mohit1
+      - Mohit3
+  tasks:
+    - name: Real work
+      debug:
+        msg: "{{ message }} {{ item }}"
+      loop: "{{ names }}"
+...
