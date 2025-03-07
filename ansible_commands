@@ -1,0 +1,6 @@
+ansible nodes --list-hosts
+ansible nodes -m ping
+ansible-inventory --list
+ansible-playbook playbook_name --syntax-check
+ansible-playbook playbook_name -C -v
+ansible-playbook playbook_name --steps
