@@ -1,3 +1,6 @@
 ansible web[1:5] -m command -a "lsblk; yum check-update; uname -r"
 ansible application -m shell -a "/root/ansible/cron_user.sh"
 ansible nodes -m uri -a "url=https://ansible.mohit.fun/playbook/hwreport.txt"
+
+ansible nodes -m file -a "path=/root/file1.txt state=touch"
+ansible nodes -m copy -a "content='Hello my friend super user root' dest=/root/file1.txt mode=4777 owner=root group=root"
