@@ -1,0 +1,29 @@
+---
+- name: Installing the httpd packages
+  hosts: nodes
+  tasks:
+    - name: Installing package
+      yum:
+        name: httpd
+        state: latest
+      notify: service
+
+  handlers:
+     - name: Enabling httpd service
+       systemd:
+          name: httpd
+          state: started
+          enabled: true
+       listen: service
+
+     - name: Adding httpd in firewall
+       firewalld:
+          service: "{{ item }}"
+          immediate: true
+          state: enabled
+          permanent: true
+       listen: service
+       loop:
+         - http
+         - https
+...
